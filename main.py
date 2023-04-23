@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 
-# Импортируем настройки проекта из config.py.
-from app.api.meeting_room import router
+from app.api.routers import main_router
 from app.core.config import settings
 
-# Устанавливаем заголовок приложения при помощи аргумента title,
-# в качестве значения указываем атрибут app_title объекта settings.
+
 app = FastAPI(title=settings.app_title) 
 
-app.include_router(router) 
+app.include_router(main_router)
